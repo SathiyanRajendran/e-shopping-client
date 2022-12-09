@@ -1,0 +1,28 @@
+<div class="container">
+  <h1 class="mb-3">Products</h1>
+
+  <table class="table" *ngIf="customer && customer.length>0" >
+    <thead>
+      <tr>
+        <th>Customer Name</th>
+        <th>Customer Email</th>
+        <th>Mobile Number</th>
+        <th>City</th>   
+        <th>Pincode</th>  
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let customers of customer">
+        <td>{{customers.customerName}}</td>
+        <td>{{customers.customerEmail}}</td>
+
+        <td>{{customers.mobileNumber}}</td>
+        <td>{{customers.customerCity}}</td>
+        <td>{{customers.pincode}}</td>
+
+        <!-- <td><a [routerLink]="['/products/edit',products.productId]">View</a></td> -->
+      </tr>
+    </tbody>
+  </table>
+  <p *ngIf="!customer || customer.length<=0">No Customers found</p>
+</div>

@@ -8,6 +8,10 @@ import {HttpClientModule,HttpClient} from '@angular/common/http';
 import { AddProductsComponent } from './Products-Add/add-products/add-products.component'
 import { FormsModule } from '@angular/forms';
 import { EditProductsComponent } from './Products-Edit/edit-products/edit-products.component';
+import { ListTradersComponent } from './Traders-List/list-traders/list-traders.component';
+import { AddTradersComponent } from './Register-Traders/add-traders/add-traders.component';
+import { ListCustomersComponent } from './Customers-List/list-customers/list-customers.component';
+import { AddCustomersComponent } from './Customers-Add/add-customers/add-customers.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +19,10 @@ import { EditProductsComponent } from './Products-Edit/edit-products/edit-produc
     ProductsListComponent,
     AddProductsComponent,
     EditProductsComponent,
+    ListTradersComponent,
+    AddTradersComponent,
+    ListCustomersComponent,
+    AddCustomersComponent,
   ],
   imports: [
     BrowserModule,

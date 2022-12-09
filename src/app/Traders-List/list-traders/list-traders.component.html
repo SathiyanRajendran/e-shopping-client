@@ -1,0 +1,26 @@
+<div class="container">
+  <h1 class="mb-3">Traders</h1>
+
+  <table class="table" *ngIf="trader && trader.length>0" >
+    <thead>
+      <tr>
+        <th>Trader Name</th>
+        <th>Trader Email</th>
+        <th>Password</th>
+        <th>Phone Number</th>
+        <th>    </th>
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let traders of trader">
+        <td>{{traders.traderName}}</td>
+        <td>{{traders.traderEmail}}</td>
+        <td>{{traders.password}}</td>
+        <td>{{traders.traderPhoneNumber}}</td>
+        <!-- <td><a [routerLink]="['/products/edit',traders.traderId]">View</a></td> -->
+      </tr>
+    </tbody>
+  </table>
+  <p *ngIf="!trader || trader.length<=0">No Traders found</p>
+</div>

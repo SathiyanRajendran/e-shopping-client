@@ -1,0 +1,43 @@
+
+<div class="container my-5">
+  <h1 class="mb-3">Register as Customer</h1>
+  <div class="row">
+    <div class="col-6">
+      <form #form="ngForm" (ngSubmit)="addCustomers()">
+        <div class="mb-3">
+          <label for="customerName" class="form-label">Customer Name </label>
+          <input type="text" class="form-control" id="customerName" name="customerName" [(ngModel)]="addCustomerPost.customerName">
+        </div>
+        <div class="mb-3">
+          <label for="customerEmail" class="form-label">Customer Email </label>
+          <input type="email" class="form-control" id="customerEmail" name="unitPrice" [(ngModel)]="addCustomerPost.customerEmail" >
+        </div>
+        <div class="mb-3">
+          <label for="Password" class="form-label">Password </label>
+          <input type="password" class="form-control" id="Password" name="Password" [(ngModel)]="addCustomerPost.Password">
+        </div>
+        <div class="mb-3">
+          <label for="confirmPassword" class="form-label">Confirm Password  </label>
+          <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" [(ngModel)]="addCustomerPost.confirmPassword">
+        </div>
+        <div class="mb-3">
+          <label for="mobileNumber" class="form-label">Mobile Number  </label>
+          <input type="text" class="form-control" id="mobileNumber" name="mobileNumber" [(ngModel)]="addCustomerPost.mobileNumber">
+        </div>
+
+        <div class="mb-3">
+          <label for="customerCity" class="form-label"> Customer City </label>
+          <input type="text" class="form-control" id="customerCity" name="customerCity" [(ngModel)]="addCustomerPost.customerCity" >
+        </div>
+        <div class="mb-3">
+          <label for="pincode" class="form-label">Pincode</label>
+          <input type="text" class="form-control" id="pincode" name="pincode" [(ngModel)]="addCustomerPost.pincode" >
+        </div>
+        
+
+       
+        <button type="submit" class="btn btn-primary">Register</button>
+      </form>
+    </div>
+  </div>
+</div>
