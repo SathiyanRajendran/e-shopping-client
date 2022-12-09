@@ -1,0 +1,30 @@
+<div class="container">
+  <h1 class="mb-3">Products</h1>
+
+  <table class="table" *ngIf="product && product.length>0" >
+    <thead>
+      <tr>
+        <th>Product Name</th>
+        <th>Unit Price</th>
+        <th>Product Image</th>
+        <th>Product Quantity</th>
+        <th>Category Id</th>
+        <th>Trader Id</th>
+        <th>    </th>
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let products of product">
+        <td>{{products.productName}}</td>
+        <td>{{products.unitPrice}}</td>
+        <td>{{products.productImage}}</td>
+        <td>{{products.productQuantity}}</td>
+        <td>{{products.categoryId}}</td>
+        <td>{{products.traderId}}</td>
+        <td><a [routerLink]="['/products/edit',products.productId]">View</a></td>
+      </tr>
+    </tbody>
+  </table>
+  <p *ngIf="!product || product.length<=0">No Products found</p>
+</div>

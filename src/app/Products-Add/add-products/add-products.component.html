@@ -1,0 +1,38 @@
+
+<div class="container my-5">
+  <h1 class="mb-3">Add Products</h1>
+  <div class="row">
+    <div class="col-6">
+      <form #form="ngForm" (ngSubmit)="addProducts()">
+        <div class="mb-3">
+          <label for="productName" class="form-label">Product Name </label>
+          <input type="text" class="form-control" id="productName" name="productName" [(ngModel)]="addingProducts.productName">
+        </div>
+        <div class="mb-3">
+          <label for="unitPrice" class="form-label">Unit Price </label>
+          <input type="unitPrice" class="form-control" id="unitPrice" name="unitPrice" [(ngModel)]="addingProducts.unitPrice" >
+        </div>
+        <div class="mb-3">
+          <label for="productImage" class="form-label">Product Image </label>
+          <input type="string" class="form-control" id="productImage" name="productImage" [(ngModel)]="addingProducts.productImage">
+        </div>
+        <div class="mb-3">
+          <label for="productQuantity" class="form-label">Product Quantity </label>
+          <input type="number" class="form-control" id="productQuantity" name="productQuantity" [(ngModel)]="addingProducts.productQuantity">
+        </div>
+        <div class="mb-3">
+          <label for="categoryId" class="form-label"> Category Id </label>
+          <input type="number" class="form-control" id="categoryId" name="categoryId" [(ngModel)]="addingProducts.categoryId" >
+        </div>
+        <div class="mb-3">
+          <label for="traderId" class="form-label">Trader Id </label>
+          <input type="number" class="form-control" id="traderId" name="traderId" [(ngModel)]="addingProducts.traderId" >
+        </div>
+        
+
+       
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
