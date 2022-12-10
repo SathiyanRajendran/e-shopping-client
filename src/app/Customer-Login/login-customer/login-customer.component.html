@@ -1,0 +1,18 @@
+<div class="container my-5">
+  <h1 class="mb-3">Login as Customer</h1>
+  <div class="row">
+    <div class="col-6">
+      <form #form="ngForm" (ngSubmit)="custLogin()">
+        <div class="mb-3">
+          <label for="customerEmail" class="form-label">Customer Email </label>
+          <input type="email" class="form-control" id="customerEmail" name="customerEmail" [(ngModel)]="SigninCustomer.customerEmail">
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Customer Password </label>
+          <input type="password" class="form-control" id="password" name="password" [(ngModel)]="SigninCustomer.password" >
+        </div>    
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+    </div>
+  </div>
+</div>

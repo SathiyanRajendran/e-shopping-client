@@ -1,0 +1,17 @@
+
+<div class="container my-5">
+  <h1 class="mb-3">Add To Your Cart</h1>
+  <div class="row">
+    <div class="col-6">
+      <form #form="ngForm" (ngSubmit)="addCart()">
+        <div class="mb-3">
+          <label for="productQuantity" class="form-label">Quantity</label>
+          <input type="number" class="form-control" id="productQuantity" name="productQuantity" [(ngModel)]="cart.productQuantity">
+        </div>
+        
+       
+        <button type="submit" class="btn btn-primary">Add</button>
+      </form>
+    </div>
+  </div>
+</div>
