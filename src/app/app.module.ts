@@ -35,7 +35,9 @@ import { AddToCartComponent } from './Add-to-cart/add-to-cart/add-to-cart.compon
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'})
+
     
   ],
   providers: [],

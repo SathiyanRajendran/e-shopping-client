@@ -1,43 +1,79 @@
+<div class="container pt-5">
+  <div class="row justify-content-sm-center pt-5">
+    <div class="col-sm-6 shadow round pb-3">
 
-<div class="container my-5">
-  <h1 class="mb-3">Register as Customer</h1>
-  <div class="row">
-    <div class="col-6">
-      <form #form="ngForm" (ngSubmit)="addCustomers()">
-        <div class="mb-3">
-          <label for="customerName" class="form-label">Customer Name </label>
-          <input type="text" class="form-control" id="customerName" name="customerName" [(ngModel)]="addCustomerPost.customerName">
-        </div>
-        <div class="mb-3">
-          <label for="customerEmail" class="form-label">Customer Email </label>
-          <input type="email" class="form-control" id="customerEmail" name="unitPrice" [(ngModel)]="addCustomerPost.customerEmail" >
-        </div>
-        <div class="mb-3">
-          <label for="Password" class="form-label">Password </label>
-          <input type="password" class="form-control" id="Password" name="Password" [(ngModel)]="addCustomerPost.Password">
-        </div>
-        <div class="mb-3">
-          <label for="confirmPassword" class="form-label">Confirm Password  </label>
-          <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" [(ngModel)]="addCustomerPost.confirmPassword">
-        </div>
-        <div class="mb-3">
-          <label for="mobileNumber" class="form-label">Mobile Number  </label>
-          <input type="text" class="form-control" id="mobileNumber" name="mobileNumber" [(ngModel)]="addCustomerPost.mobileNumber">
-        </div>
+      <h1 class="text-center pt-3 text-secondary">Register as Customer</h1>
+      <div class="row">
+        <div class="col-6">
+          <form #form="ngForm" [formGroup]="exform2" (ngSubmit)="addCustomers()">
+            <div class="mb-3">
+              <label for="customerName" class="form-label">Customer Name </label>
+              <input type="text" class="form-control" id="customerName" 
+              formControlName="customerName"
+                name="customerName" autocomplete="off"  [(ngModel)]="addCustomerPost.customerName">
+              <small *ngIf="exform2.get('customerName')?.invalid && exform2.get('customerName')?.touched"
+                class="text-danger">Name is Required</small>
+            </div>
+            <div class="mb-3">
+              <label for="customerEmail" class="form-label">Customer Email </label>
+              <input type="email" class="form-control" id="customerEmail" name="unitPrice"
+                formControlName="customerEmail" 
+                autocomplete="off" [(ngModel)]="addCustomerPost.customerEmail">
+              <small *ngIf="exform2.get('customerEmail')?.invalid && exform2.get('customerEmail')?.touched"
+                class="text-danger">Email is Required</small>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password </label>
+              <input type="password" class="form-control" id="password" name="password" 
+              formControlName="password"
+                autocomplete="off" minlength="8" [(ngModel)]="addCustomerPost.Password">
+              <small *ngIf="exform2.get('password')?.invalid && exform2.get('password')?.touched" class="text-danger">
+                Password must contain at least one number, one uppercase and a lowercase letter
+                and at least 8 characters<br>Password cannot contain whitespace </small>
+              <span class="text-danger" *ngIf=""></span>
+            </div>
+            <div class="mb-3">
+              <label for="confirmPassword" class="form-label">Confirm Password </label>
+              <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
+                formControlName="confirmPassword" 
+                autocomplete="off" [(ngModel)]="addCustomerPost.confirmPassword">
+              <small *ngIf="exform2.get('confirmPassword')?.invalid && exform2.get('confirmPassword')?.touched"
+                class="text-danger"> Password must contain at least one number, one uppercase and a lowercase letter
+                and at least 8 characters<br>Password cannot contain whitespace</small>
 
-        <div class="mb-3">
-          <label for="customerCity" class="form-label"> Customer City </label>
-          <input type="text" class="form-control" id="customerCity" name="customerCity" [(ngModel)]="addCustomerPost.customerCity" >
-        </div>
-        <div class="mb-3">
-          <label for="pincode" class="form-label">Pincode</label>
-          <input type="text" class="form-control" id="pincode" name="pincode" [(ngModel)]="addCustomerPost.pincode" >
-        </div>
-        
+            </div>
+            <div class="mb-3">
+              <label for="mobileNumber" class="form-label">Mobile Number </label>
+              <input type="text" class="form-control" id="mobileNumber" name="mobileNumber"
+                formControlName="mobileNumber" 
+                autocomplete="off" [(ngModel)]="addCustomerPost.mobileNumber">
+              <small *ngIf="exform2.get('mobileNumber')?.invalid && exform2.get('mobileNumber')?.touched"
+                class="text-danger">Mobile Number is Required and It should be in the length of minimum 10</small>
+            </div>
 
-       
-        <button type="submit" class="btn btn-primary">Register</button>
-      </form>
+            <div class="mb-3">
+              <label for="customerCity" class="form-label"> Customer City </label>
+              <input type="text" class="form-control" id="customerCity" name="customerCity"
+                formControlName="customerCity" 
+                autocomplete="off" [(ngModel)]="addCustomerPost.customerCity">
+              <small *ngIf="exform2.get('customerCity')?.invalid && exform2.get('customerCity')?.touched"
+                class="text-danger">City is Required</small>
+            </div>
+            <div class="mb-3">
+              <label for="pincode" class="form-label">Pincode</label>
+              <input type="text" class="form-control" id="pincode" name="pincode"
+               formControlName="pincode"
+               autocomplete="off" [(ngModel)]="addCustomerPost.pincode">
+              <small *ngIf="exform2.get('pincode')?.invalid && exform2.get('pincode')?.touched"
+                class="text-danger">Pincode is Required</small>
+            </div>
+
+
+
+            <button [disabled]="exform2.invalid" type="submit" class="btn btn-primary">Register</button>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 </div>

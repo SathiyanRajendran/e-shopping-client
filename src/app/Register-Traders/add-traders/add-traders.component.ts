@@ -10,7 +10,6 @@ import { TradersService } from 'src/app/Services/traders.service';
   styleUrls: ['./add-traders.component.css']
 })
 export class AddTradersComponent implements OnInit {
-  exform!: FormGroup;
   addTraders:addTradersRequest={
     traderName:'',
     traderEmail:'',
@@ -18,7 +17,7 @@ export class AddTradersComponent implements OnInit {
     confirmPassword:'',
     traderPhoneNumber:''
   }
-
+ exform!: FormGroup;
   constructor(private tradeservice:TradersService,
     private router:Router) { }
 

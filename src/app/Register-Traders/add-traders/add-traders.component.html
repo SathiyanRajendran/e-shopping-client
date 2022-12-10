@@ -4,17 +4,19 @@
       <h1 class="text-center pt-3 text-secondary">Register as Trader</h1>
       <div class="row">
         <div class="col-sm-7">
-          <form [formGroup]="exform" #form="ngForm" (ngSubmit)="postTraders()">
+          <form  #form="ngForm" [formGroup]="exform" (ngSubmit)="postTraders()">
             <div class="mb-3">
               <label for="traderName" class="form-label">Trader Name </label>
-              <input type="text" class="form-control" formControlName="traderName" autocomplete="off" id="traderName"
+              <input type="text" class="form-control"  
+              formControlName="traderName" autocomplete="off" id="traderName"
                 name="traderName" [(ngModel)]="addTraders.traderName">
               <small *ngIf="exform.get('traderName')?.invalid && exform.get('traderName')?.touched"
                 class="text-danger">Name is Required</small>
             </div>
             <div class="mb-3">
               <label for="traderEmail" class="form-label">Trader Email</label>
-              <input type="email" class="form-control" formControlName="traderEmail" autocomplete="off" id="traderEmail"
+              <input type="email" class="form-control" 
+              formControlName="traderEmail" autocomplete="off" id="traderEmail"
                 name="traderEmail" [(ngModel)]="addTraders.traderEmail">
               <small *ngIf="exform.get('traderEmail')?.invalid && exform.get('traderEmail')?.touched"
                 class="text-danger">Email is Required</small>
@@ -22,7 +24,8 @@
             </div>
             <div class="mb-3">
               <label for="password" class="form-label">Password </label>
-              <input type="password" class="form-control" formControlName="password" autocomplete="off" id="password"
+              <input type="password" class="form-control"  
+              formControlName="password" autocomplete="off" id="password"
                 name="password" [(ngModel)]="addTraders.password">
               <small *ngIf="exform.get('password')?.invalid && exform.get('password')?.touched"
                 class="text-danger"> Password must contain at least one number, one uppercase and a lowercase letter 
@@ -32,16 +35,17 @@
 
             <div class="mb-3">
               <label for="confirmPassword" class="form-label"> Confirm Passsword </label>
-              <input type="password" class="form-control" formControlName="confirmPassword" autocomplete="off"
+              <input type="password" class="form-control"  
+              formControlName="confirmPassword" autocomplete="off"
                 id="confirmPassword" name="confirmPassword" [(ngModel)]="addTraders.confirmPassword">
               <small *ngIf="exform.get('confirmPassword')?.invalid && exform.get('confirmPassword')?.touched"
-                class="text-danger"> Password must contain at least one number, one uppercase and a lowercase letter 
-                and at least 8 characters<br>Password cannot contain whitespace</small>
+                class="text-danger">Confirm Password should match with the Password</small>
 
             </div>
             <div class="mb-3">
               <label for="traderPhoneNumber" class="form-label">Phone Number </label>
-              <input type="text" class="form-control" formControlName="traderPhoneNumber" autocomplete="off"
+              <input type="text" class="form-control" 
+              formControlName="traderPhoneNumber" autocomplete="off"
                 id="traderPhoneNumber" name="traderPhoneNumber" [(ngModel)]="addTraders.traderPhoneNumber">
               <small *ngIf="exform.get('traderPhoneNumber')?.invalid && exform.get('traderPhoneNumber')?.touched"
                 class="text-danger">Phone Number is Required and It should be in the length of minimum 10</small>
@@ -50,7 +54,7 @@
 
 
 
-            <button [disabled]="exform.invalid" type="button" class="btn btn-primary">Register</button>
+            <button [disabled]="exform.invalid"  type="submit" class="btn btn-primary">Register</button>
           </form>
         </div>
       </div>

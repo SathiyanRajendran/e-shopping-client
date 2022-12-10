@@ -41,7 +41,7 @@ const routes: Routes = [
     component:AddCustomersComponent
   },
   {
-    path:'customers/login',
+    path:'login',
     component:LoginCustomerComponent
   },
   {
