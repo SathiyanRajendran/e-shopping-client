@@ -7,12 +7,14 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
+  isAuthenticated1:boolean = false;
   constructor(private router:Router,private httpClient:HttpClient) { }
   isAuthenticated():boolean{
     if(sessionStorage.getItem('email,password')!==null){
-      return true;
+      this.isAuthenticated1=true;
+      return this.isAuthenticated1;
     }
-    return false;
+    return this.isAuthenticated1;
   }
   // canAccess(){
   //   if(!this.isAuthenticated()){
@@ -23,5 +25,5 @@ export class AuthService {
   //   this.router.navigate(['productslist'])
   //   }
   // }
- 
+  
 }

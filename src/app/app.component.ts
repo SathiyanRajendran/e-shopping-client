@@ -9,8 +9,9 @@ import { AuthService } from './Services/auth.service';
 export class AppComponent implements OnInit {
   title = 'e-shopping-client';
   constructor(public auth:AuthService){}
-  
-  ngOnInit():void{
+  //isAuthenticated1:boolean=false;
 
+  ngOnInit():void{
+     
   }
 }

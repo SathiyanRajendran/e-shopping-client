@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Products } from 'src/app/Models/products.model';
 import { ProductService } from 'src/app/Services/product.service';
 
@@ -20,7 +21,7 @@ export class EditProductsComponent implements OnInit {
     traderId:0
   }
   constructor(private route:ActivatedRoute,private prodservice:ProductService,
-    private router:Router) { }
+    private router:Router,private toastr:ToastrService) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe({
@@ -31,6 +32,7 @@ export class EditProductsComponent implements OnInit {
           this.prodservice.getProductById(id)
           .subscribe({
             next:(response)=>{
+              this.toastr.info("Here is the product you selected")
               this.productDetails=response;
             }
           })
@@ -42,7 +44,8 @@ export class EditProductsComponent implements OnInit {
     this.prodservice.updateProducts(this.productDetails.productId,this.productDetails)
     .subscribe({
       next:(response)=>{
-  this.router.navigate(['products']);
+        this.toastr.success("Products Edited Successfully")
+        this.router.navigate(['products']);
       }
     })
   }
@@ -50,6 +53,7 @@ export class EditProductsComponent implements OnInit {
     this.prodservice.deleteProducts(this.productDetails.productId)
     .subscribe({
       next:(response)=>{
+        this.toastr.info("Product Deleted Successfully")
         this.router.navigate(['products'])
       }
     })

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Route, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { addTradersRequest } from 'src/app/Models/add-traders.model';
 import { TradersService } from 'src/app/Services/traders.service';
 
@@ -19,7 +20,7 @@ export class AddTradersComponent implements OnInit {
   }
  exform!: FormGroup;
   constructor(private tradeservice:TradersService,
-    private router:Router) { }
+    private router:Router,private toastr:ToastrService) { }
 
   ngOnInit(): void {
     this.exform=new FormGroup({
@@ -41,6 +42,7 @@ export class AddTradersComponent implements OnInit {
   postTraders(){
     this.tradeservice.addTraders(this.addTraders).subscribe({
       next:(traders)=>{
+        this.toastr.success('You are successfully Registered')
         this.router.navigate(['products'])
       }
     })

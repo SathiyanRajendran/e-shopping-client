@@ -15,6 +15,10 @@ import { AddCustomersComponent } from './Customers-Add/add-customers/add-custome
 import { LoginCustomerComponent } from './Customer-Login/login-customer/login-customer.component';
 import { CustViewProductComponent } from './Customer-view-products/cust-view-product/cust-view-product.component';
 import { AddToCartComponent } from './Add-to-cart/add-to-cart/add-to-cart.component';
+import { ToastrModule } from 'ngx-toastr';
+// import { ToastrModule } from 'ngx-toastr';
+ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +40,14 @@ import { AddToCartComponent } from './Add-to-cart/add-to-cart/add-to-cart.compon
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'})
+    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
+    ToastrModule.forRoot({
+      timeOut:2000,
+       progressBar:true,
+       progressAnimation:'increasing',
+       preventDuplicates:true
+    }), // ToastrModule added
+   BrowserAnimationsModule, // required animations module
 
     
   ],

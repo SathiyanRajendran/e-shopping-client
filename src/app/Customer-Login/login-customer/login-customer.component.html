@@ -11,7 +11,7 @@
               <label for="customerEmail" class="form-label">Customer Email </label>
               <input type="email" class="form-control" id="customerEmail" 
               formControlName="customerEmail" name="customerEmail"
-                [(ngModel)]="SigninCustomer.customerEmail">
+                [(ngModel)]="SigninCustomer.customerEmail" required>
                 <small *ngIf="exform3.get('customerEmail')?.invalid && exform3.get('customerEmail')?.touched"
                 class="text-danger">Email is Required</small>
               </div>
@@ -19,7 +19,7 @@
               <label for="password" class="form-label">Customer Password </label>
               <input type="password" class="form-control" id="password" 
               formControlName="password" name="password"
-                [(ngModel)]="SigninCustomer.password">
+                [(ngModel)]="SigninCustomer.password" required>
                 <small *ngIf="exform3.get('password')?.invalid && exform3.get('password')?.touched"
                 class="text-danger">Password is Required</small> 
             </div>

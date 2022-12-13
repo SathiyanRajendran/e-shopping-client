@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { addCustomerRequest } from 'src/app/Models/add-customers.model';
 import { CustomersService } from 'src/app/Services/customers.service';
 
@@ -11,7 +12,8 @@ import { CustomersService } from 'src/app/Services/customers.service';
 })
 export class AddCustomersComponent implements OnInit {
  exform2!: FormGroup;
-  constructor(private customerservice:CustomersService,private router:Router) { }
+  constructor(private customerservice:CustomersService,private router:Router,
+    private toastr:ToastrService) { }
   addCustomerPost:addCustomerRequest={
     customerName:'',
     customerEmail:'',
@@ -51,9 +53,12 @@ export class AddCustomersComponent implements OnInit {
 addCustomers(){
     this.customerservice.addCustomers(this.addCustomerPost).subscribe({
       next:(customers)=>{
+        this.toastr.success("You are Successfully Registered,Please Login by your credentials")
         this.router.navigate(['login']);
-        //console.log(customers)
-        
+        //console.log(customers)     
+      },
+      error:(redponse)=>{
+        this.toastr.error('Enter your details correctly')
       }
     })
 }
